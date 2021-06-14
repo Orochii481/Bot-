@@ -306,6 +306,7 @@ async function starts() {
 			const premium = ["554792091566@s.whatsapp.net","558296156440@s.whatsapp.net"] 
 			const isGroup = from.endsWith('@g.us')
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
+			pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefine
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
 			const groupName = isGroup ? groupMetadata.subject : ''
 			const groupMembers = isGroup ? groupMetadata.participants : ''
@@ -654,77 +655,16 @@ if (text.includes("placa"))
 			client.updatePresence(from, Presence.composing)
 			reply("5 segundo KKKKKKKK tchau otário 😔🤙")
 		}, 0)
-	}
 	
-	if (messagesC.includes("fdp")){
-			client.updatePresence(from, Presence.composing)
-			reply("teu pai")
-	}
 	
-		if (messagesC.includes("corno")){
-			client.updatePresence(from, Presence.composing)
-			reply("vsfd seu merda")
-	}
 	
-		if (messagesC.includes("tmnc")){
-			client.updatePresence(from, Presence.composing)
-			reply("vai vc, tu ja me disse q é mo bom")
-	}
 	
-		if (messagesC.includes("vsfd")){
-			client.updatePresence(from, Presence.composing)
-			reply("bora juntos?")
-	}
-	
-		if (messagesC.includes("cadebot")){
-			client.updatePresence(from, Presence.composing)
-			reply("olha eu aqui carai")
 	}
 	
 		if (messagesC.includes("bot")){
 			client.updatePresence(from, Presence.composing)
 			reply("oi")
-	}
 	
-			if (messagesC.includes("bah")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/bahc.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-	}
-	
-				if (messagesC.includes("causs")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/caussf.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-	}
-	
-			if (messagesC.includes("Dbz")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/Dbz.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-	}
-	        if (messagesC.includes("sexo")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/Sexo.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-	}
-	
-				if (messagesC.includes("canta")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/canto.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-	}
-	
-					if (messagesC.includes("grita")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/a.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-	}
-	
-			if (messagesC.includes("bv")){
-			client.updatePresence(from, Presence.composing)
-			tujuh = fs.readFileSync('./assets/bv.mp3');
-            client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 	}
 	
 				if (messagesC.includes("mandememe")){
@@ -748,8 +688,9 @@ if (text.includes("placa"))
 			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'do leke', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			switch(command) {
 				case 'help':
-				case 'menu':
-					client.sendMessage(from, help(prefix), text)
+					 me=client.user 
+					  uptime=process.uptime 
+                        client.sendMessage(from, help(pushname,prefix), text)
 					break
 				case 'help1':
 				case 'menu1':
